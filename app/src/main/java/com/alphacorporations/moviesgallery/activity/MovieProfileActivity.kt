@@ -1,17 +1,11 @@
 package com.alphacorporations.moviesgallery.activity
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.alphacorporations.moviesgallery.CONSTANT
 import com.alphacorporations.moviesgallery.R
-import com.alphacorporations.moviesgallery.activity.adapter.MoviesAdapter
 import com.alphacorporations.moviesgallery.model.Movie
-import com.alphacorporations.moviesgallery.repository.MoviesRepository
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterInside
-import kotlinx.android.synthetic.main.activity_list_movie.*
 import kotlinx.android.synthetic.main.activity_profile_movie.*
 
 /**
@@ -20,19 +14,12 @@ Projet: Movies Gallery
  **/
 class MovieProfileActivity : AppCompatActivity() {
 
-    private lateinit var moviesAdapter: MoviesAdapter
-    private var movieID = CONSTANT.MOVIE_ID
-    private var popularMoviesPage = 1
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_movie)
 
         getPopularMovies()
         getExtraFromIntent()
-        getSimilarMovie(movieID!!)
-        //getVideoFromApi(movieID!!)
     }
 
     /** Get movie from MovieAPI with ID of Movie**/
@@ -47,7 +34,6 @@ class MovieProfileActivity : AppCompatActivity() {
 
     /** Get movieData from Intent **/
     private fun getExtraFromIntent() {
-        println()
         /** Second try get data from intent to draw it, error = intent.getStringExtra("movie_id") must not be null**/
         drawMovie(movie = Movie(
             intent.extras?.get("movie_id") as Int,
@@ -61,23 +47,7 @@ class MovieProfileActivity : AppCompatActivity() {
         )
     }
 
-    private fun getSimilarMovie(movieID: Int) {
-        MoviesRepository.getSimilarMovies(
-            movieID,
-            popularMoviesPage,
-            ::onPopularMoviesFetched,
-            ::onError
-
-        )
-    }
-    private fun onPopularMoviesFetched(movies: List<Movie>) {
-        moviesAdapter.appendMovies(movies)
-        loading_movie.visibility = View.GONE
-    }
-
-
     private fun drawMovie(movie: Movie) {
-
         Glide.with(movie_poster_path)
             .load("https://image.tmdb.org/t/p/w342${movie.posterPath}")
             .transform(CenterInside())
@@ -85,11 +55,7 @@ class MovieProfileActivity : AppCompatActivity() {
 
         movie_title.text = movie.title
         movie_overview.text = movie.overview
-        movie_vote_average.text = movie.rating.toString()
+        movie_vote_average.text = movie.rating.toString().plus("/10")
         movie_movie_release_date.text = movie.releaseDate.replace('-', '/')
-    }
-
-    private fun onError() {
-        Toast.makeText(this, getString(R.string.error_fetch_movies), Toast.LENGTH_SHORT).show()
     }
 }

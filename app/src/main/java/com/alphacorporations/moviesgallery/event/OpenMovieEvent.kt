@@ -26,7 +26,6 @@ class OpenMovieEvent {
         intent.putExtra("movie_vote_average", movie.rating)
         intent.putExtra("movie_release_date", movie.releaseDate)
 
-        
         v.context.startActivity(intent)
     }
 }

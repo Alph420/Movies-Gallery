@@ -1,6 +1,5 @@
 package com.alphacorporations.moviesgallery.repository
 
-import com.alphacorporations.moviesgallery.model.GetMovieResponse
 import com.alphacorporations.moviesgallery.model.GetMoviesResponse
 import com.alphacorporations.moviesgallery.model.Movie
 import com.alphacorporations.moviesgallery.service.ApiMovie

@@ -4,4 +4,5 @@
     <string name="popular_movie_categories">Popular movies</string>
     <string name="top_rating_movies">Top rating movies</string>
     <string name="up_coming_movies">Up coming movies</string>
+    <string name="poster_movie">poster_movie</string>
 </resources>

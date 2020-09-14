@@ -1,6 +1,5 @@
 package com.alphacorporations.moviesgallery.service
 
-import com.alphacorporations.moviesgallery.model.GetMovieResponse
 import com.alphacorporations.moviesgallery.model.GetMoviesResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -14,8 +13,8 @@ interface ApiMovie {
     @GET("movie/popular")
     fun getPopularMovies(
         @Query("api_key") apiKey: String = "47c48be7b9913d1deac8b07d15648980",
-        @Query("language") language:String = "fr",
-        @Query("region") region:String = "FR",
+        @Query("language") language: String = "fr",
+        @Query("region") region: String = "FR",
         @Query("page") page: Int
     ): Call<GetMoviesResponse>
 }

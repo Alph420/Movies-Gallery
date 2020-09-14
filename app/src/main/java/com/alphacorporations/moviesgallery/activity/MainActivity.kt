@@ -19,19 +19,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var popularMoviesLayoutMgr: GridLayoutManager
 
     private var popularMoviesPage = 1
+    private val topOfList = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_movie)
 
-        btn_return_top.setOnClickListener { returnToTheTop() }
+        btn_return_top.setOnClickListener { list_popular_movie.smoothScrollToPosition(topOfList) }
 
         setAdapter()
         getPopularMovies()
-    }
-
-    private fun returnToTheTop() {
-        list_popular_movie.smoothScrollToPosition(0)
     }
 
     private fun setAdapter() {
