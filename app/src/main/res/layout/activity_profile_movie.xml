@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/movie_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+
+    <ImageView
+        android:id="@+id/movie_poster_path"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_poster_path">
+
+        <TextView
+            android:id="@+id/movie_vote_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:drawableEnd="@drawable/ic_baseline_star_24"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+
+
+            tools:text="Vote Average" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/movie_movie_release_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+
+
+            tools:text="Release Data" />
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/movie_overview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            tools:layout_editor_absoluteY="584dp"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        ex arcu, fermentum et odio eu, euismod facilisis enim. Nullam placerat ornare mauris
+         ut varius. Maecenas sollicitudin ultricies lectus, eu lobortis urna consequat sit amet.
+          Sed lobortis orci id magna ultricies bibendum. Curabitur nisl ligula, pulvinar nec purus nec,
+           volutpat consectetur est. Cras a rhoncus justo. In fringilla sed lorem eu dictum. Sed gravida
+           ornare lorem eu maximus. In in blandit nibh. Morbi mattis est vehicula justo volutpat accumsan.
+            Sed facilisis orci vitae nunc semper maximus." />
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
